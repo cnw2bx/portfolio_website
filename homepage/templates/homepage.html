@@ -3,29 +3,12 @@
 {% load static %}
 
 {% block page_content%}
-  <style>
-    body{
-      padding-top: 85px;
-      background-image: url("static/homepage/images/Rotunda.jpg");
-      background-size: 100%;
-      background-repeat: no-repeat;
-    }
-    .jumbotron {
-      max-width: 500px;
-      margin: 0 auto;
-      border: 0.08em solid black;
-      text-align: center;
-      background-color: rgba(224, 238, 226, 0.35); ;
-    }
+<link rel="stylesheet" type="text/css" href="{% static 'homepage/css/parallax.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'homepage/css/jumbotron.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'homepage/css/carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'homepage/css/card.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'homepage/css/body.css' %}">
 
-    .carousel {
-      margin-top: 100px;
-    }
-
-    .card {
-      margin-top: 100px;
-    }
-  </style>
 
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="#">C Dawg McMoneyPants</a>
@@ -63,12 +46,43 @@
     </div>
   </nav>
 
-  <div class="jumbotron">
-    <div class="container">
-      <h1>Cameron Woodward</h1>
-      <h6>Computer Science - Business - Fuckin</h6>
-    </div>
-  </div>
+  <script type="text/javascript">
+    document.addEventListener("mousemove", parallax);
+    console.log("called")
+    function parallax(e) {
+      this.querySelectorAll('.layer').forEach(layer => {
+        const speed = layer.getAttribute('data-speed')
+
+        const x = (window.innerWidth - e.pageX*speed)/100
+        const y = (window.innerHeight - e.pageY*speed)/100
+
+        layer.style.transform =  `translateX(${x}px) translateY(${y}px)`
+      })
+    }
+  </script>
+  <parallax>
+    <img src="static/homepage/images/1.png" data-speed="-5" class="layer">
+    <img src="static/homepage/images/2.png" data-speed="-2" class="layer">
+    <img src="static/homepage/images/3.png" data-speed="3" class="layer">
+    <img src="static/homepage/images/4.png" data-speed="-5" class="layer">
+    <img src="static/homepage/images/5.png" data-speed="-4" class="layer">
+    <img src="static/homepage/images/6.png" data-speed="2" class="layer">
+    <img src="static/homepage/images/7.png" data-speed="-1" class="layer">
+    <img src="static/homepage/images/8.png" data-speed="4" class="layer">
+    <img src="static/homepage/images/9.png" data-speed="-3" class="layer">
+    <img src="static/homepage/images/10.png" data-speed="1" class="layer">
+    <img src="static/homepage/images/11.png" data-speed="-6" class="layer">
+    <img src="static/homepage/images/12.png" data-speed="6" class="layer">
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Cameron Woodward</h1>
+        <h6>Computer Science - Business - Fuckin</h6>
+      </div>
+    </div> 
+  </parallax>
+  
+
+  
 
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -79,6 +93,10 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img class="d-block" width="250" height="250" src="{% static 'homepage/images/me.jpg' %}" alt="First slide">
+        <div class="carousel-caption">
+          <h3>Los Angeles</h3>
+          <p>LA is always so much fun!</p>
+        </div>
       </div>
       <div class="carousel-item">
         <img class="d-block w-100" src="{% static 'homepage/images/family.jpg' %}" alt="Second slide">
