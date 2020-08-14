@@ -1,3 +1,7 @@
 .card 
 {
-  margin-top: 100px;
+  max-width: 500px;
+  margin: 0 auto;
+  border: 0.08em solid black;
+  text-align: center;
+}
