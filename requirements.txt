@@ -53,7 +53,7 @@ smartsheet-python-sdk==2.86.0
 sqlparse==0.3.0
 travis==0.0.3
 uritemplate==3.0.1
-urllib3==1.25.8
+urllib3==1.26.5
 virtualenv==20.0.4
 virtualenv-clone==0.5.4
 whitenoise==5.0.1
